@@ -1,0 +1,12 @@
+{
+  "listen_host": "0.0.0.0",
+  "listen_port": 8065,
+  "upstream": "http://127.0.0.1:8060/dingtalk/webhook1/send",
+  "cooldown_seconds": 21600,
+  "max_alerts_per_message": 3,
+  "rate_limit": {
+    "max_messages": 3,
+    "window_seconds": 3600
+  },
+  "state_file": "/opt/alert-dedup/state.json"
+}

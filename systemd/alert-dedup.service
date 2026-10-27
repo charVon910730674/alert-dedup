@@ -1,0 +1,17 @@
+[Unit]
+Description=Alertmanager dedup/ratelimit webhook proxy (for DingTalk)
+Documentation=https://github.com/charVon910730674/alert-dedup
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/alert-dedup/dedup_proxy.py
+Environment=DEDUP_CONF=/opt/alert-dedup/config.json
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
